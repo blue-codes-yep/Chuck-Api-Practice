@@ -9,15 +9,6 @@
     align-items: center;
 }
 
-#myInput {
-  border: solid black 1px;
-  width: 25%;
-  margin: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 #newQuoteButton {
   color: #0099cc;
   background-color: transparent;
