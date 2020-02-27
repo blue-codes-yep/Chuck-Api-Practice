@@ -1,12 +1,40 @@
+.background {
+  background-color: rgba(0, 400, 300, 0.5);
+}
+
+.picOfChuck {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  width: auto;
+  height: auto;
+  margin: auto;
+}
+
 .wrapper {
   display: flex;
   justify-content: center;
 }
 
 .btnWrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.labelWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  padding: 30px;
+}
+
+#btnWrapper2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #newQuoteButton {
@@ -70,3 +98,49 @@
   background-color: #008cba;
   color: white;
 }
+
+.modal-overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.modal-overlay.open {
+  display: flex;
+}
+
+.modal-content {
+  background-color: white;
+  margin: auto;
+  padding: 16px;
+  border-radius: 50px;
+  width: 640px;
+  height: auto;
+  position: relative;
+}
+
+.modal-content .modal-close {
+  background-color: #000;
+  cursor: pointer;
+  color: #fff;
+  position: absolute;
+  top: 10px;
+  right: 16px;
+  padding: 1px;
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+}
+
+#chuckSays {
+  font-size: 1.3rem;
+}
+
