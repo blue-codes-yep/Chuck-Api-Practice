@@ -7,16 +7,27 @@
         <link rel="stylesheet" href="styles/styles.css">
     </head>
     <body>
-    <div class="wrapper">
-        <p id="chuckSays">Chuck says...</p>
-    </div>
+    <div class="background">
+    <img src="/JSPrac/APIPrac/images/chuck.png" class="picOfChuck">
+
     <div class="btnWrapper">
         <div id="refreshQuote">Refresh Quote</div>
+    </div>
         <form id="categoryChangeForm">
-            <label id="categorySelectLabel">Select Category:</label>
-            <div id="newQuoteButton">Get a fresh quote</div>
-        </div>
+            <div class="labelWrapper">
+            <label id="categorySelectLabel">Select Category:</label></div>
+            <div id="btnWrapper2"><div id="newQuoteButton">Quote Selected</div></div>
         </form>
+    </div>
+    <div class="modal-overlay">
+        
+        <div class="modal-content">
+            <span id="closeModal" class="modal-close">X</span>
+            <div class="wrapper">
+                <p id="chuckSays">Chuck says...</p>
+            </div>
+        </div>
+    </div>
     </body>
     <script src="script/get.js"></script>
     <script src="script/scripts.js"></script>
