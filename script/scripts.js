@@ -4,38 +4,35 @@ let category = 'dev';
 const refreshQuoteButton = document.querySelector('#refreshQuote');
 const submitFormButton = document.querySelector('#submitForm');
 const changeCategoryForm = document.querySelector('#changeCategoryForm');
+const closeModalButton = document.querySelector('#closeModal');
 
-function getQuote(category) {
+const getQuote = async category => {
     const chuckSaysParagraph = document.querySelector('#chuckSays');
     const apiUrl = `https://api.chucknorris.io/jokes/random?category=${category}`;
-    get(apiUrl).then(function (response) {
-        chuckSaysParagraph.innerHTML = response.value;
-    });
+    const modalWindow = document.querySelector(".modal-overlay");
+
+    const theQuote = await getWithAwait(apiUrl);
+    chuckSaysParagraph.innerHTML = theQuote.value;
+    modalWindow.classList.toggle('open');
 }
 
 
-function getCategories() {
+const getCategories = async () => {
     const apiUrl = `https://api.chucknorris.io/jokes/categories`;
     const categorySelectLabel = document.querySelector('#categorySelectLabel')
 
-    get(apiUrl).then(function (response) {
-        const categoryList = response.filter(function (category) {
-            if (category != 'explicit') {
-                return category
-            }
-        });
-        // Create a select element for our categories. 
-        const categoryElement = document.createElement('select');
+    const categoryList = await getWithAwait(apiUrl);
+
+    const categoryElement = document.createElement('select');
         // Create the options for the select element. 
-        categoryList.map(function(category){
+        categoryList.map(function (category) {
             const categoryOption = document.createElement('option')
             categoryOption.value = category;
             categoryOption.text = category;
             categoryElement.appendChild(categoryOption)
         });
         categorySelectLabel.appendChild(categoryElement);
-    });
-}
+};
 
 refreshQuoteButton.addEventListener('click', function (e) {
     e.preventDefault();
@@ -51,5 +48,13 @@ newQuoteButton.addEventListener('click', function (e) {
     getQuote(category)
 });
 
+closeModalButton.addEventListener('click', function (e) {
+    e.preventDefault();
+    const modalWindow = document.querySelector('.modal-overlay');
+    modalWindow.classList.toggle('open');
+});
+
 getQuote(category);
 getCategories();
+
+getWithAwait('https://api.chucknorris.io/jokes/random?category=dev');
